@@ -1,0 +1,5 @@
+build/
+test/voltometer_tests
+*.[oda]
+main/*.hex
+main/*.elf
