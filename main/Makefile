@@ -40,15 +40,7 @@ TARGET_ARCH = -mmcu=$(DEVICE)
 
 CPPFLAGS  = -DF_CPU=$(CLOCK) -Isrc
 
-LIBTIMER_DIR = support/libtimer
-SCHEDULER_DIR = support/scheduler
-SOFTUART_DIR = support/softuart
-
-CPPFLAGS += -I$(LIBTIMER_DIR)/main/src
-CPPFLAGS += -I$(SCHEDULER_DIR)/main/src
-CPPFLAGS += -I$(SOFTUART_DIR)/main/src
-
-CFLAGS   = --std=c99 -Wall -Werror -fdiagnostics-show-option -Os
+CFLAGS   = --std=c99 -g -Wall -Werror -fdiagnostics-show-option -Os
 ARFLAGS  = rs
 # add "v" for verbose
 
@@ -124,17 +116,13 @@ clean:
 # libserialprotocol.a: src/serial_handler.o
 # libfurnacecontroller.a: src/controller.o
 
+libTheLib.a: $(ALL_OBJS)
+main.elf: libTheLib.a
+# main.elf: $(ALL_OBJS)
+
 # main.elf: $(LIBTIMER_DIR)/main/libtimer_$(DEVICE).a \
 #           $(SCHEDULER_DIR)/main/libscheduler_$(DEVICE).a \
 #           $(SOFTUART_DIR)/main/libusi_serial_$(DEVICE).a \
 #           libdevices.a \
 #           libserialprotocol.a libfurnacecontroller.a
 # 
-# $(LIBTIMER_DIR)/main/libtimer_$(DEVICE).a:
-# 	make -C $(LIBTIMER_DIR)/main DEVICE=$(DEVICE) SILENT=$(SILENT) device-specific-lib
-# 
-# $(SCHEDULER_DIR)/main/libscheduler_$(DEVICE).a:
-# 	make -C $(SCHEDULER_DIR)/main DEVICE=$(DEVICE) SILENT=$(SILENT) device-specific-lib
-# 
-# $(SOFTUART_DIR)/main/libusi_serial_$(DEVICE).a:
-# 	make -C $(SOFTUART_DIR)/main DEVICE=$(DEVICE) SILENT=$(SILENT) device-specific-lib

@@ -1,9 +1,9 @@
-#ifndef SERIAL_H
-#define SERIAL_H
+#ifndef TIMER0_H
+#define TIMER0_H
 
 #include <avr/io.h>
 
-typedef enum __prescalers {
+typedef enum __timer0_prescalers {
     TIMER0_PRESCALE_OFF  = ~(_BV(CS02) | _BV(CS01) | _BV(CS00)),
     TIMER0_PRESCALE_1    =                           _BV(CS00) ,
     TIMER0_PRESCALE_8    =               _BV(CS01)             ,
@@ -12,20 +12,20 @@ typedef enum __prescalers {
     TIMER0_PRESCALE_1024 =   _BV(CS02) |             _BV(CS00) ,
 } Timer0Prescale;
 
-typedef enum __wgm_modes {
+typedef enum __timer0_wgm_modes {
     TIMER0_WGM3,
 } Timer0WaveGenModes;
 
 // "modes" map like waveform generation modes
 //     00 == 0, 01 == 1, 10 == 2, 11 == 3
-typedef enum __oca_modes {
+typedef enum __timer0_oca_modes {
     TIMER0_OCA0 = 0 /* ~(_BV(COM0A1) | _BV(COM0A0)) */,
     // TIMER0_OCA1 =                 _BV(COM0A0),
     TIMER0_OCA2 =   _BV(COM0A1),
     // TIMER0_OCA3 =   _BV(COM0A1) | _BV(COM0A0),
 } Timer0OutputCompareAModes;
 
-typedef enum __ocb_modes {
+typedef enum __timer0_ocb_modes {
     TIMER0_OCB0 = 0 /* ~(_BV(COM0B1) | _BV(COM0B0)) */,
     // "mode 1" is reserved
     TIMER0_OCB2 =   _BV(COM0B1),
