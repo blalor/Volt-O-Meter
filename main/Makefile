@@ -9,14 +9,14 @@ SILENT = @
 #                is connected.
 # FUSES ........ Parameters for avrdude to flash the fuses appropriately.
 
-DEVICE     = atmega168x
+DEVICE     = atmega168
 CLOCK      = 8000000
 PROGRAMMER = -c avrispmkii -P usb
 
-# int. rc osc @ 8mhz [cksel=0010, sut=10]
+# int. rc osc @ 8mhz
 # do not divide clock by 8
-# bodlevel=101
-#@todo FUSES = -U lfuse:w:0xE2:m -U hfuse:w:0xdd:m -U efuse:w:0xff:m
+# bodlevel 1.8v
+FUSES = -U lfuse:w:0xE2:m -U hfuse:w:0xde:m -U efuse:w:0xf9:m
 
 ## -- ok, that should be the last of the stuff generally defined by the user
 
