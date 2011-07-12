@@ -47,12 +47,3 @@ TEST(SerialTests, ByteReceived) {
     BYTES_EQUAL(1, brs_get_invocation_count());
     BYTES_EQUAL('a', brs_get_received_byte());
 }
-
-// TEST(SerialTests, RelayOff) {
-//     virtualPORTB = 0xff;
-//     
-//     relay_off();
-//     
-//     BYTES_EQUAL(B11101111, virtualPORTB); // Relay off
-// }
-// 

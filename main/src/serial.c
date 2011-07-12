@@ -3,7 +3,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-void (*rx_byte_handler)(const uint8_t);
+static void (*rx_byte_handler)(const uint8_t);
 
 void serial_init(
     const uint16_t baud_rate,
