@@ -1,0 +1,87 @@
+<?xml version='1.0'?>
+<schematic name='voltometer.sch'>
+    <part name='BATTERY' value='1X2-3.5MM'>
+        <device name='1X2-3.5MM' package='1X2-3.5MM' lib='adafruit' />
+    </part>
+    <part name='C1' value='0.1µ'>
+        <device name='C-US025-025X050' package='C025-025X050' lib='rcl' />
+    </part>
+    <part name='C2' value='100µF/100V'>
+        <device name='CPOL-USE5-8.5' package='E5-8,5' lib='rcl' />
+    </part>
+    <part name='C3' value='100µ'>
+        <device name='CPOL-USE2-5' package='E2-5' lib='rcl' />
+    </part>
+    <part name='C4' value='100µ'>
+        <device name='CPOL-USE2-5' package='E2-5' lib='rcl' />
+    </part>
+    <part name='C5' value='0.1µ'>
+        <device name='C-US025-025X050' package='C025-025X050' lib='rcl' />
+    </part>
+    <part name='C6' value='0.1µF'>
+        <device name='C-US025-025X050' package='C025-025X050' lib='rcl' />
+    </part>
+    <part name='C7' value='0.1µ'>
+        <device name='C-US025-025X050' package='C025-025X050' lib='rcl' />
+    </part>
+    <part name='D1' value='SB160'>
+        <device name='SCHOTTKY-DIODEDO41' package='DO41-10' lib='adafruit' />
+    </part>
+    <part name='D2' value='1N4004'>
+        <device name='1N4004' package='DO41-10' lib='adafruit' />
+    </part>
+    <part name='IC1' value='MEGA8-P'>
+        <device name='MEGA8-P' package='DIL28-3' lib='atmel' />
+    </part>
+    <part name='IC2' value='MCP1700-3302E/TO:'>
+        <device name='MCP1700INLINE' package='TO92-INLINE' lib='adafruit' />
+    </part>
+    <part name='ICSP'>
+        <device name='PINHEAD-EZ_PINHD-2X3' package='PINHEAD-EZ_2X03' lib='boarduino' />
+    </part>
+    <part name='L1' value='56000µH'>
+        <device name='L-US0204/5' package='0204/5' lib='rcl' />
+    </part>
+    <part name='LEDS' value='1X2-3.5MM'>
+        <device name='1X2-3.5MM' package='1X2-3.5MM' lib='adafruit' />
+    </part>
+    <part name='METER' value='1X2-3.5MM'>
+        <device name='1X2-3.5MM' package='1X2-3.5MM' lib='adafruit' />
+    </part>
+    <part name='R1' value='1k'>
+        <device name='R-US_0207/12' package='0207/12' lib='rcl' />
+    </part>
+    <part name='R2' value='1k'>
+        <device name='R-US_0207/12' package='0207/12' lib='rcl' />
+    </part>
+    <part name='R3' value='10k'>
+        <device name='R-US_0207/12' package='0207/12' lib='rcl' />
+    </part>
+    <part name='R4' value='1k'>
+        <device name='R-US_0207/12' package='0207/12' lib='rcl' />
+    </part>
+    <part name='R9'>
+        <device name='R-US_0207/12' package='0207/12' lib='rcl' />
+    </part>
+    <part name='R10'>
+        <device name='R-US_0207/12' package='0207/12' lib='rcl' />
+    </part>
+    <part name='SWITCH' value='1X2-3.5MM'>
+        <device name='1X2-3.5MM' package='1X2-3.5MM' lib='adafruit' />
+    </part>
+    <part name='T1' value='BC547'>
+        <device name='-NPN-TO92-CBE' package='TO92-CBE' lib='transistor-neu-to92' />
+    </part>
+    <part name='T2' value='BC547'>
+        <device name='-NPN-TO92-CBE' package='TO92-CBE' lib='transistor-neu-to92' />
+    </part>
+    <part name='T3' value='BC547'>
+        <device name='-NPN-TO92-CBE' package='TO92-CBE' lib='transistor-neu-to92' />
+    </part>
+    <part name='U$2' value='2.1MMJACKTHM'>
+        <device name='2.1MMJACKTHM' package='PJ-102A' lib='adafruit' />
+    </part>
+    <part name='XBEE' value='ULINK_XBEE'>
+        <device name='ULINK_XBEE' package='ULINK_XBEE' lib='xbee' />
+    </part>
+</schematic>
