@@ -30,7 +30,7 @@
     <part name='D2' value='1N4004'>
         <device name='1N4004' package='DO41-10' lib='adafruit' />
     </part>
-    <part name='IC1' value='MEGA8-P'>
+    <part name='IC1' value='ATMega168'>
         <device name='MEGA8-P' package='DIL28-3' lib='atmel' />
     </part>
     <part name='IC2' value='MCP1700-3302E/TO:'>
