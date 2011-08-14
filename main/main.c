@@ -16,11 +16,17 @@ typedef struct __serial_pkt {
     uint8_t value;
 } Packet;
 
+/*
+ * Handles incoming messages from the serial handler
+ *
+ * @param data the received data
+ * @param data_len the length of the received data
+ */
 void msg_received(const void *data, const size_t data_len) {
     Packet *pkt = (Packet *)data;
     
     if (pkt->type == 'M') {
-        // "meter"
+        // "Meter"
         timer2_set_ocra(pkt->value);
         
         if (pkt->value == 0) {
@@ -67,40 +73,24 @@ int main(void) {
     
     // configure PWM output for boost converter; OC0A
     timer0_config_oca(TIMER0_OCA2);
-
-    // d/c == f_cpu/64 == f_cpu/1
-    // 15% ==   25.2   ==    9.2
-    // 25% ==   31.2   ==   12.4
-    // 30% ==   32.8   ==   14.4
-    // 40% ==   35.2   ==   16.4
-    // 45% ==   35.6   ==   16
-    // 50% ==   36.0   ==   16
-    // 60% ==   36.0   ==   16.8
-    // 75% ==   36     ==   28
-    // 77% ==          ==   30.6
-    // 80% ==          ==   35.2
-    // 85% ==          ==   35.2
-    // 90% ==   36     ==   35.4
-    // 91% ==          ==   36
-    // 95% ==          ==    0.4
+    
+    // set duty cycle for boost converter; 89% gives about 34 volts
     timer0_set_ocra((89*255)/100); // duty cycle
     
     // configure PWM output for LED; OC0B
     timer0_config_ocb(TIMER0_OCB2);
     timer0_set_ocrb(128); // duty cycle
     
+    // sweep the meter needle from 0 to 100%
+    PORTB |= _BV(PB3);
+    _delay_ms(2000);
+    PORTB &= ~_BV(PB3);
+    
     // configure PWM output for analog meter; OC2A
     timer2_config_oca(TIMER2_OCA2);
         
     // enable interrupts
     sei();
-    
-    // sweep the meter needle from 0 to 100%
-    timer2_set_ocra(0);
-    _delay_ms(2000);
-    timer2_set_ocra(255);
-    _delay_ms(2000);
-    timer2_set_ocra(0);
     
     for (;;) {
         
